@@ -22,28 +22,33 @@
 package src.Array;
 
 import java.io.*;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Array11 {
     public int solution(int n, int[][] arr) {
         int answer = 0;
-        int[] std = new int[n]; //학생별 횟수
-        for(int i=0; i<n; i++) {
-            int[] cls = new int[9]; //학년별 반 명수
+        int[] rslt = new int[n];
+        for(int i=0; i<5; i++) {
+            Map<Integer, List<Integer>> map = new HashMap<>();
             for(int j=0; j<n; j++) {
-                cls[arr[j][i]-1]++;
+                if(map.get(arr[j][i]) == null) {
+                    map.put(arr[j][i], new ArrayList<>());
+                }
+                map.get(arr[j][i]).add(j);
             }
-            for(int j=0; j<n; j++) {
-                if(cls[arr[j][i]-1]>1) {
-                    std[j]++;
+            for(int item : map.keySet()) {
+                if(map.get(item).size()>1) {
+                    for(int m : map.get(item)){
+                        rslt[m]++;
+                    }
                 }
             }
         }
-        int cnt = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
         for(int i=0; i<n; i++) {
-            if(std[i]>cnt) {
+            if(rslt[i]>max) {
+                max = rslt[i];
                 answer = i+1;
-                cnt = std[i];
             }
         }
         return answer;
@@ -54,10 +59,10 @@ public class Array11 {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(bf.readLine());
-        int[][] arr = new int[n][n];
+        int[][] arr = new int[n][5];
         for(int i=0; i<n; i++) {
             StringTokenizer st = new StringTokenizer(bf.readLine());
-            for(int j=0; j<n; j++) {
+            for(int j=0; j<5; j++) {
                 arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }

@@ -26,29 +26,30 @@ import java.util.stream.Collectors;
 public class Array12 {
     public int solution(int n, int x, int[][] arr) {
         int answer = 0;
-
-        Set<String> set = new HashSet<>();
-        for(int j=0; j<n-1; j++) {
-            String str = "";
-            str += arr[0][j] + "/";
-            for(int k=j+1; k<n; k++) {
-                str += arr[0][k];
-                set.add(str);
-                str.substring(0,str.length()-String.valueOf(arr[0][k]).length());
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for(int i=0; i<x; i++) {
+            if(map.get(i) == null) {
+                map.put(i, new ArrayList<>());
+            }
+            for(int j=0; j<n; j++) {
+                map.get(i).add(arr[i][j]);
             }
         }
-        for(int i=1; i<x; i++) {
-            for(int j=0; j<n-1; j++) {
-                String str = "";
-                str += arr[0][j] + "/";
-                for(int k=j+1; k<n; k++) {
-                    str += arr[0][k];
-                    if()
-                    str.substring(0,str.length()-String.valueOf(arr[0][k]).length());
+
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=n; j++) {
+                int a = 0;
+                for(int k=0; k<x; k++) {
+                    if(map.get(k).indexOf(j)>map.get(k).indexOf(i)) {
+                        a++;
+                    }
+                }
+                if(a == x) {
+                    answer++;
                 }
             }
         }
-        answer = set.size();
+
         return answer;
     }
 

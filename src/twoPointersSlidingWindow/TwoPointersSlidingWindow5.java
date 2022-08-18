@@ -20,22 +20,22 @@ package src.twoPointersSlidingWindow;
 import java.io.*;
 
 public class TwoPointersSlidingWindow5 {
-    public void solution(int n, String str) throws IOException {
-        String answer = "";
-
-        String[] num = str.split(" ");
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int nm = Integer.parseInt(num[0]);
-        bw.write(nm + " ");
-        for(String item : num) {
-            int t = Integer.parseInt(item);
-            if(t>nm) {
-                bw.write(t + " ");
+    public int solution(int n) throws IOException {
+        int answer = 0;
+        int sum = 0;
+        int lt = 0;
+        int rt = 0;
+        for(int i=lt; i<n; i++) {
+            sum += i;
+            if(sum == n) {
+                answer++;
+                sum = 0;
+            }else if(sum>n) {
+                break;
             }
-            nm = t;
         }
-        bw.flush();
-        bw.close();
+
+        return answer;
     }
 
     public static void main(String[] args) throws IOException {
@@ -43,8 +43,7 @@ public class TwoPointersSlidingWindow5 {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(bf.readLine());
-        String str = bf.readLine();
 
-        m.solution(n,str);
+        System.out.println(m.solution(n));
     }
 }

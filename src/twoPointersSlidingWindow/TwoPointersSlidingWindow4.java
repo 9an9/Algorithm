@@ -30,10 +30,16 @@ import java.util.StringTokenizer;
 public class TwoPointersSlidingWindow4 {
 
 
-    public int solution(int n, int x, int[] str) {
-        int answer = 0;
-
-
+    public int solution(int n, int m, int[] arr) {
+        int answer=0, sum=0, lt=0;
+        for(int rt=0; rt<n; rt++){
+            sum+=arr[rt];
+            if(sum==m) answer++;
+            while(sum>=m){
+                sum-=arr[lt++];
+                if(sum==m) answer++;
+            }
+        }
         return answer;
     }
 

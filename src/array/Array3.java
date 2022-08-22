@@ -20,7 +20,7 @@
  * B
  * D
  */
-package src.Array;
+package src.array;
 
 import java.io.*;
 

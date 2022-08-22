@@ -11,7 +11,7 @@
  * 예시 출력 1
  * 1 0 1 2 1 0 1 2 2 1 0
  */
-package src.String;
+package src.string;
 
 import java.io.*;
 

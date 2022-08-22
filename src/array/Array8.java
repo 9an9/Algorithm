@@ -13,7 +13,7 @@
  * 예시 출력 1
  * 4 3 2 1 5
  */
-package src.Array;
+package src.array;
 
 import java.io.*;
 import java.util.Arrays;

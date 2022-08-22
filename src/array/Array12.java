@@ -17,11 +17,10 @@
  * 예시 출력 1
  * 3
  */
-package src.Array;
+package src.array;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Array12 {
     public int solution(int n, int x, int[][] arr) {

@@ -16,7 +16,7 @@
  * emiT
  * giB
  */
-package src.String;
+package src.string;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

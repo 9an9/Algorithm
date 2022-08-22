@@ -11,7 +11,7 @@
  * 예시 출력 1
  * S#T!EG*b@a
  */
-package src.String;
+package src.string;
 
 import java.io.BufferedReader;
 import java.io.IOException;

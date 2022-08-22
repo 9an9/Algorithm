@@ -16,7 +16,7 @@
  * 예시 출력 2
  * KST3SE2KFK3DJ2G2
  */
-package src.String;
+package src.string;
 
 import java.io.*;
 

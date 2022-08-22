@@ -10,7 +10,7 @@
  * 예시 출력 1 : study
  */
 
-package src.String;
+package src.string;
 
 import java.io.BufferedReader;
 import java.io.IOException;

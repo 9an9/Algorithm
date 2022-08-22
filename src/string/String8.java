@@ -13,7 +13,7 @@
  * 예시 출력 1
  * YES
  */
-package src.String;
+package src.string;
 
 import java.io.BufferedReader;
 import java.io.IOException;

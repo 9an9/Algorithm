@@ -12,7 +12,7 @@
  * 예시 출력 1
  * 5
  */
-package src.Array;
+package src.array;
 
 import java.io.*;
 

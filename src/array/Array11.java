@@ -19,7 +19,7 @@
  * 예시 출력 1
  * 4
  */
-package src.Array;
+package src.array;
 
 import java.io.*;
 import java.util.*;

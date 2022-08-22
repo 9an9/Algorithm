@@ -14,7 +14,7 @@
  * 예시 출력 1
  * 10
  */
-package src.Array;
+package src.array;
 
 import java.io.*;
 

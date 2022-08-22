@@ -10,7 +10,7 @@
  * 예시 출력 1 : sTUdy
  */
 
-package src.String;
+package src.string;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

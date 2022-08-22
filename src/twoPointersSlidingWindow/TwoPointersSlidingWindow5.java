@@ -23,15 +23,19 @@ public class TwoPointersSlidingWindow5 {
     public int solution(int n) throws IOException {
         int answer = 0;
         int sum = 0;
-        int lt = 0;
-        int rt = 0;
-        for(int i=lt; i<n; i++) {
-            sum += i;
+        int lt = 1;
+        int rt = 1;
+        while(rt<n) {
+            sum += lt++;
             if(sum == n) {
                 answer++;
-                sum = 0;
+                sum=0;
+                rt++;
+                lt = rt;
             }else if(sum>n) {
-                break;
+                sum=0;
+                rt++;
+                lt = rt;
             }
         }
 

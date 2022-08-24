@@ -23,13 +23,22 @@ public class Hash3 {
     public void solution(int n, int x, int[] arr) throws IOException {
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        Set<Integer> set = new HashSet<>();
-        for(int i=0; i<n-x+1; i++) {
-            for(int j=i; j<i+x; j++) {
-                set.add(arr[j]);
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int i=0; i<x-1; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i],0) +1);
+        }
+        int lt=0;
+        int rt=x-1;
+        while(rt<n) {
+            map.put(arr[rt], map.getOrDefault(arr[rt],0) +1);
+            bw.write(map.size() + " ");
+            map.put(arr[lt], map.get(arr[lt])-1);
+            if(map.get(arr[lt])==0) {
+                map.remove(arr[lt]);
             }
-            bw.write(set.size() + " ");
-            set = new HashSet<>();
+            lt++;
+            rt++;
         }
         bw.flush();
         bw.close();

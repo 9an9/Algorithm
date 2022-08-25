@@ -18,16 +18,23 @@ package src.hash;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public class Hash5 {
     public int solution(int n, int x, Integer[] arr) throws IOException {
-        int answer= 0;
-
-        Arrays.sort(arr, Collections.reverseOrder());
-
-
+        int answer=-1;
+        TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
+        for(int i=0; i<n; i++){
+            for(int j=i+1; j<n; j++){
+                for(int l=j+1; l<n; l++){
+                    Tset.add(arr[i]+arr[j]+arr[l]);
+                }
+            }
+        }
+        int cnt=0;
+        for(int i : Tset){
+            cnt++;
+            if(cnt==x) return x;
+        }
         return answer;
     }
 

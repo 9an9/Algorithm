@@ -1,9 +1,10 @@
 /*
- * 1. 선택 정렬
+ * 2. 버블 정렬
  * N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
- * 정렬하는 방법은 선택정렬입니다.
- * 데이터가 무작위로 여러 개 있다고 가정하자. 가장 작은 데이터를 선택해 맨 앞에 있는 데이터와 바꾸고,
- * 그 다음 작은 데이터를 선택해 앞에서 두 번째 데이터와 바꾸는 과정을 반복한다. O(N²)
+ * 정렬하는 방법은 버블정렬입니다.
+ * 1. 앞에서부터 현재 원소와 바로 다음의 원소를 비교한다.
+ * 2. 현재 원소가 다음 원소보다 크면 원소를 교환한다.
+ * 3. 다음 원소로 이동하여 해당 원소와 그 다음원소를 비교한다.O(N2)/O(N)
  * 입력
  * 첫 번째 줄에 자연수 N(1<=N<=100)이 주어집니다.
  * 두 번째 줄에 N개의 자연수가 공백을 사이에 두고 입력됩니다. 각 자연수는 정수형 범위 안에 있습니다.
@@ -20,21 +21,16 @@ package src.sortingSearching;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class SortingSearching1 {
-
+public class SortingSearching2 {
     public void solution(int n, int[] arr) throws IOException {
 
         int min = 0;
-        for(int i=0; i<n; i++) {
-            for(int j=i+1; j<n; j++) {
-                if(arr[j]<arr[min]) {
-                    min = j;
+        for(int i = 1; i < n; i++) {
+            for(int j = 0; j < n - i; j++) {
+                if(arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
                 }
             }
-            int tmp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = tmp;
-            min = i+1;
         }
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         for(int i : arr) {
@@ -42,6 +38,12 @@ public class SortingSearching1 {
         }
         bw.flush();
         bw.close();
+    }
+
+    private static void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
 
     public static void main(String[] args) throws IOException {

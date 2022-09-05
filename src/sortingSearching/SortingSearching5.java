@@ -30,7 +30,7 @@ public class SortingSearching5 {
             cnt[i]++;
         }
         for(int i : cnt) {
-            if(i!=1) answer = "D";
+            if(i>1) answer = "D";
         }
 
 

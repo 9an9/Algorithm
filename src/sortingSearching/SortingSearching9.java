@@ -21,11 +21,38 @@ package src.sortingSearching;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class SortingSearching9 {
+
+    public int count(int[] arr, int capacity) {
+        int cnt = 1, sum = 0;
+        for(int i : arr) {
+            if(sum + i > capacity) {
+                cnt++;
+                sum = i;
+            }else sum += i;
+        }
+        return cnt;
+    }
+
     public int solution(int n, int x, int[] arr) {
         int answer = 0;
+
+        int lt = Arrays.stream(arr).max().getAsInt();
+        int rt = Arrays.stream(arr).sum();
+
+        while(lt<=rt) {
+            int mid = (lt+rt)/2;
+
+            if(count(arr, mid)<=x) {
+                answer = mid;
+                rt = mid - 1;
+            }else {
+                lt = mid + 1;
+            }
+        }
 
         return answer;
     }
@@ -36,12 +63,14 @@ public class SortingSearching9 {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String str = bf.readLine();
         int n = Integer.parseInt(str.split(" ")[0]);
-        int x = Integer.parseInt(str.split(" ")[0]);
+        int x = Integer.parseInt(str.split(" ")[1]);
 
         int[] arr = new int[n];
         StringTokenizer st = new StringTokenizer(bf.readLine());
         for(int i=0; i<n; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
+
+        System.out.println(m.solution(n, x, arr));
     }
 }
